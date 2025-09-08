@@ -1,3 +1,4 @@
+import 'package:diey_app/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class MacrosDetailsScreen extends StatelessWidget {
@@ -5,6 +6,20 @@ class MacrosDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("اعرف نسبك ")));
+    return Scaffold(
+      appBar: AppBar(title: Text(" اعرف نسبك ")
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(" ... لمعرفة سعراتك من البروتين والدهون و الكاربوهيدرات "),
+          Text(" دخل سعرات ثباتك اللي حسبتها"),
+          CustomTextField(
+            keyboardType: TextInputType.number,
+            labelText: "سعراتك كام ",
+            hintText: "أدخل سعرات ثباتك "),
+        ],
+      ),
+      );
   }
 }

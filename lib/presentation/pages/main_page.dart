@@ -28,6 +28,7 @@ class _MainPageState extends State<MainPage> {
       children: pages 
       ),
       bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.white,
         currentIndex: currentIndex,
         onTap: (value) {
           setState(() {
@@ -36,20 +37,22 @@ class _MainPageState extends State<MainPage> {
         },
         items: [
           BottomNavigationBarItem(
-    icon: FaIcon(FontAwesomeIcons.houseChimney),
+    icon: FaIcon(FontAwesomeIcons.houseChimney,color: Colors.white,),
     label: "الرئيسية",
   ),
   BottomNavigationBarItem(
-    icon: FaIcon(FontAwesomeIcons.kitchenSet),
+    icon: FaIcon(FontAwesomeIcons.kitchenSet,color: Colors.white),
     label: "الوصفات",
   ),
   BottomNavigationBarItem(
-    icon: FaIcon(FontAwesomeIcons.calculator),
+    icon: FaIcon(FontAwesomeIcons.calculator,color: Colors.white),
     label: "احسب سعراتك"
   ),
   BottomNavigationBarItem(
-    icon: FaIcon(FontAwesomeIcons.noteSticky),
+    icon: FaIcon(FontAwesomeIcons.book,color: Colors.white),
     label: "اعرف نسبك ",
+    
+    
   ),
         ],
       ),

@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                   child: ImageCategory(
                     onTap: () {},
                     hight: 120,
-                    image: "assets/images/ideal-protein-diet-VA-768x512.jpg",
+                    image: "assets/images/books.jpg",
                   ),
                 ),
               ],
