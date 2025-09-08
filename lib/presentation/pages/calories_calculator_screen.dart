@@ -3,53 +3,101 @@ import 'package:diey_app/presentation/widgets/custom_drop_down_field.dart';
 import 'package:diey_app/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
-class CaloriesCalculatorScreen extends StatelessWidget {
-   CaloriesCalculatorScreen({super.key});
-  final List<String> activities = [" نشاط خفيف", "نشاط متوسط ", " نشاط عالي"];
-  final List<String> gender = ["ذكر", " أنثى"];
+class CaloriesCalculatorScreen extends StatefulWidget {
+  const CaloriesCalculatorScreen({super.key});
+
+  @override
+  State<CaloriesCalculatorScreen> createState() =>
+      _CaloriesCalculatorScreenState();
+}
+
+class _CaloriesCalculatorScreenState extends State<CaloriesCalculatorScreen> {
+  final List<String> activities = ["نشاط خفيف", "نشاط متوسط", "نشاط عالي"];
+  final List<String> genders = ["ذكر", "أنثى"];
+
+  final TextEditingController heightController = TextEditingController();
+  final TextEditingController weightController = TextEditingController();
+
+  String? selectedActivity;
+  String? selectedGender;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("احسب سعراتك "),
+        title: const Text("احسب سعراتك"),
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            CustomTextField(onSubmitted: (value){}, 
-            hintText: "طولك بالمتر",
-            keyboardType: TextInputType.number,
+            CustomTextField(
+              controller: heightController,
+              hintText: "طولك بالمتر",
+              keyboardType: TextInputType.number,
             ),
-            SizedBox(
-              height: 15,
+            const SizedBox(height: 15),
+
+            CustomTextField(
+              controller: weightController,
+              hintText: "وزنك بالكيلو جرام",
+              keyboardType: TextInputType.number,
             ),
-            CustomTextField(onSubmitted: (value){}, 
-            hintText: "وزنك بالكيلو جرام ",
-            keyboardType: TextInputType.number,
+            const SizedBox(height: 15),
+
+            CustomDropDown(
+              labelText: "نشاطك",
+              value: selectedActivity,
+              items: activities
+                  .map((option) =>
+                      DropdownMenuItem(value: option, child: Text(option)))
+                  .toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedActivity = value;
+                });
+              },
             ),
-              SizedBox(
-              height: 15,
-            ),
-            DropDownActivities(
-              labelText: "نشاطك ",
-              items:
-            activities.map((option) {
-          return DropdownMenuItem(value: option, child: Text(option));
-        }).toList(),),
-          SizedBox(
-              height: 15,
-            ),
-            DropDownActivities(
+            const SizedBox(height: 15),
+
+            CustomDropDown(
               labelText: "الجنس",
-              items:
-            gender.map((option) {
-          return DropdownMenuItem(value: option, child: Text(option));
-        }).toList(),),
-          SizedBox(
-              height: 15,
+              value: selectedGender,
+              items: genders
+                  .map((option) =>
+                      DropdownMenuItem(value: option, child: Text(option)))
+                  .toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedGender = value;
+                });
+              },
             ),
-          CustomButton()
+            const SizedBox(height: 20),
+
+            CustomButton(
+              text: "احسب",
+              onTap: () {
+                final height = double.tryParse(heightController.text);
+                final weight = double.tryParse(weightController.text);
+
+                if (height != null &&
+                    weight != null &&
+                    selectedActivity != null &&
+                    selectedGender != null) {
+                  // هنا بعدين هتستدعي الكيوبت وتحسب
+                  // context.read<CaloriesCubit>().calculateCalories(...)
+                  debugPrint(
+                      "Height: $height, Weight: $weight, Activity: $selectedActivity, Gender: $selectedGender");
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("من فضلك ادخل كل البيانات"),
+                    ),
+                  );
+                }
+              },
+            )
           ],
         ),
       ),
