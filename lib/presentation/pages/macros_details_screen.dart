@@ -12,7 +12,7 @@ class MacrosDetailsScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(" ... لمعرفة سعراتك من البروتين والدهون و الكاربوهيدرات "),
+          Text(".. لمعرفة سعراتك و نسبك من البروتين والدهون و الكاربوهيدرات "),
           Text(" دخل سعرات ثباتك اللي حسبتها"),
           CustomTextField(
             keyboardType: TextInputType.number,

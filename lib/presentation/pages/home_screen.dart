@@ -1,5 +1,8 @@
+import 'package:diey_app/presentation/pages/fitness_screen.dart';
 import 'package:diey_app/presentation/pages/intermittent_fasting_screen.dart';
 import 'package:diey_app/presentation/pages/keto_diet_screen.dart';
+import 'package:diey_app/presentation/pages/keto_food_screen.dart';
+import 'package:diey_app/presentation/pages/questions_screens.dart';
 import 'package:diey_app/presentation/widgets/image_category.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return KetoDietScreen();
+                      return KetoFoodScreen();
                     },
                   ),
                 );
@@ -74,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return KetoDietScreen();
+                      return FitnessScreen();
                     },
                   ),
                 );
@@ -90,7 +93,7 @@ class HomeScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return KetoDietScreen();
+                      return QuestionsScreens();
                     },
                   ),
                 );
