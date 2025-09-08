@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
               onTap: () {},
               hight: 150,
               width: double.infinity,
-              image: "images/ideal-protein-diet-VA-768x512.jpg",
+              image: "assets/images/520ee979c581332e6492bc19573b1c4d.png.webp",
             ),
             Row(
               children: [
@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
                   child: ImageCategory(
                     onTap: () {},
                     hight: 120,
-                    image: "images/IntermittentFasting_final-0b2134c18e154613b64a21a48b5b0114.jpg",
+                    image: "assets/images/صيام-متقطع-1751107066 (1).webp",
                   ),
                 ),
                 Expanded(
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                   child: ImageCategory(
                     onTap: () {},
                     hight: 120,
-                    image: "assets/images/ideal-protein-diet-VA-768x512.jpg",
+                    image: "assets/images/1-1638490.webp",
                   ),
                 ),
                 Expanded(

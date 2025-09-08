@@ -1,5 +1,6 @@
 import 'package:diey_app/presentation/pages/calories_calculator_screen.dart';
 import 'package:diey_app/presentation/pages/home_screen.dart';
+import 'package:diey_app/presentation/pages/macros_details_screen.dart';
 import 'package:diey_app/presentation/pages/recipe_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,7 +16,8 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> pages = [
     HomeScreen(),
     RecipeScreen(),
-    CaloriesCalculatorScreen()
+    CaloriesCalculatorScreen(),
+    MacrosDetailsScreen()
     ];
   int currentIndex = 0;
   @override
@@ -44,7 +46,11 @@ class _MainPageState extends State<MainPage> {
   BottomNavigationBarItem(
     icon: FaIcon(FontAwesomeIcons.calculator),
     label: "احسب سعراتك"
-  )
+  ),
+  BottomNavigationBarItem(
+    icon: FaIcon(FontAwesomeIcons.noteSticky),
+    label: "اعرف نسبك ",
+  ),
         ],
       ),
     );
