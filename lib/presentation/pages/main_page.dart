@@ -37,7 +37,8 @@ class _MainPageState extends State<MainPage> {
         },
         items: [
           BottomNavigationBarItem(
-    icon: FaIcon(FontAwesomeIcons.houseChimney,color: Colors.white,),
+            
+    icon: FaIcon(FontAwesomeIcons.houseChimney,color: Colors.white),
     label: "الرئيسية",
   ),
   BottomNavigationBarItem(
