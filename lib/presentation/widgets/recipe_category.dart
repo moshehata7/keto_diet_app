@@ -1,33 +1,38 @@
+import 'package:diey_app/models/recipe_model.dart';
 import 'package:flutter/material.dart';
 
 class RecipeCategory extends StatelessWidget {
-  const RecipeCategory({
-    super.key,
-    required this.recipeName,
-    required this.recipeImage, required this.onTap,
-  });
-  final String recipeName;
-  final String recipeImage;
-  final Function() onTap;
+  const RecipeCategory({super.key, required this.recipe});
+  final Recipe recipe;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+        onTap: recipe.onTap,
+        child: Card(
+          elevation: 10,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
           child: Stack(
             children: [
-              Positioned(
-                top: 155,
-                left: 55,
-                child: Text(
-                  recipeName,
-                  style: TextStyle(fontSize: 25, color: Colors.white),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    recipe.name,
+                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  ),
                 ),
               ),
-              Image.asset(recipeImage),
+              ClipRRect(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                child: Image.asset(
+                  fit: BoxFit.cover,
+                  recipe.image),
+              ),
             ],
           ),
         ),
