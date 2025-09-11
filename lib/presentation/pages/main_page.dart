@@ -1,8 +1,10 @@
+import 'package:diey_app/calories_cubit/calories_cubit.dart';
 import 'package:diey_app/presentation/pages/calories_calculator_screen.dart';
 import 'package:diey_app/presentation/pages/home_screen.dart';
 import 'package:diey_app/presentation/pages/macros_details_screen.dart';
 import 'package:diey_app/presentation/pages/recipe_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MainPage extends StatefulWidget {
@@ -16,7 +18,9 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> pages = [
     HomeScreen(),
     RecipeScreen(),
-    CaloriesCalculatorScreen(),
+    BlocProvider(
+      create: (context) => CaloriesCubit(),
+    child: CaloriesCalculatorScreen()),
     MacrosDetailsScreen()
     ];
   int currentIndex = 0;

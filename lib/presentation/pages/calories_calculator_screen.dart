@@ -1,7 +1,9 @@
+import 'package:diey_app/calories_cubit/calories_cubit.dart';
 import 'package:diey_app/presentation/widgets/custom_button.dart';
 import 'package:diey_app/presentation/widgets/custom_drop_down_field.dart';
 import 'package:diey_app/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CaloriesCalculatorScreen extends StatefulWidget {
   const CaloriesCalculatorScreen({super.key});
@@ -17,6 +19,8 @@ class _CaloriesCalculatorScreenState extends State<CaloriesCalculatorScreen> {
 
   final TextEditingController heightController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
+  final TextEditingController ageController = TextEditingController(); 
+
 
   String? selectedActivity;
   String? selectedGender;
@@ -45,7 +49,7 @@ class _CaloriesCalculatorScreenState extends State<CaloriesCalculatorScreen> {
             ),
             const SizedBox(height: 15),
             CustomTextField(
-              controller: weightController,
+              controller:ageController ,
               hintText: "عمرك",
               keyboardType: TextInputType.number,
             ),
@@ -86,16 +90,22 @@ class _CaloriesCalculatorScreenState extends State<CaloriesCalculatorScreen> {
               onTap: () {
                 final height = double.tryParse(heightController.text);
                 final weight = double.tryParse(weightController.text);
+                final age = int.tryParse(ageController.text);
+
 
                 if (height != null &&
                     weight != null &&
+                    age != null&&
                     selectedActivity != null &&
                     selectedGender != null) {
-                  // هنا بعدين هتستدعي الكيوبت وتحسب
-                  // context.read<CaloriesCubit>().calculateCalories(...)
-                  debugPrint(
-                      "Height: $height, Weight: $weight, Activity: $selectedActivity, Gender: $selectedGender");
-                } else {
+                 BlocProvider.of<CaloriesCubit>(context).calculateCalories(
+                      height: height * 100, 
+                      weight: weight,
+                      age: age,
+                      gender: selectedGender!,
+                      activity: selectedActivity!,
+                    );
+                  
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text("من فضلك ادخل كل البيانات"),
