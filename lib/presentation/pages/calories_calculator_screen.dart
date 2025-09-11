@@ -44,6 +44,12 @@ class _CaloriesCalculatorScreenState extends State<CaloriesCalculatorScreen> {
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 15),
+            CustomTextField(
+              controller: weightController,
+              hintText: "عمرك",
+              keyboardType: TextInputType.number,
+            ),
+            const SizedBox(height: 15),
 
             CustomDropDown(
               labelText: "نشاطك",
