@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ImageCategory extends StatelessWidget {
-  const ImageCategory({
+class HomeCategory extends StatelessWidget {
+  const HomeCategory({
     super.key,
      this.hight,
      this.width,

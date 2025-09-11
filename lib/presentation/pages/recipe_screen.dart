@@ -1,4 +1,5 @@
-import 'package:diey_app/presentation/widgets/image_category.dart';
+import 'package:diey_app/presentation/widgets/home_category.dart';
+import 'package:diey_app/presentation/widgets/recipe_category.dart';
 import 'package:flutter/material.dart';
 
 class RecipeScreen extends StatelessWidget {
@@ -8,14 +9,21 @@ class RecipeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("وصفات ")),
-      body: GridView.builder(
+      body: GridView(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        itemBuilder: (context, index) {
-          return ImageCategory(image: "assets/images/ideal-protein-diet-VA-768x512.jpg",
-           onTap: () {});
-        },
+        children: [
+          RecipeCategory(
+            recipeName: "بيتزا للفطار",
+             recipeImage:"images/pizza.jpg",
+             onTap: () {
+               
+             },
+             ),
+          
+          
+        ],
       ),
     );
   }

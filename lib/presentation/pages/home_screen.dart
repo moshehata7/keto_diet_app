@@ -3,7 +3,7 @@ import 'package:diey_app/presentation/pages/intermittent_fasting_screen.dart';
 import 'package:diey_app/presentation/pages/keto_diet_screen.dart';
 import 'package:diey_app/presentation/pages/keto_food_screen.dart';
 import 'package:diey_app/presentation/pages/questions_screens.dart';
-import 'package:diey_app/presentation/widgets/image_category.dart';
+import 'package:diey_app/presentation/widgets/home_category.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            ImageCategory(
+            HomeCategory(
               onTap: () {
                 Navigator.push(
                   context,
@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: ImageCategory(
+                  child: HomeCategory(
                     onTap: () {
                       Navigator.push(
                   context,
@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: ImageCategory(
+                  child: HomeCategory(
                     onTap: () {
                       Navigator.push(
                   context,
@@ -71,7 +71,7 @@ class HomeScreen extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: ImageCategory(
+                  child: HomeCategory(
                     onTap: () {
                       Navigator.push(
                   context,
@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: ImageCategory(
+                  child: HomeCategory(
                     onTap: () {
                       Navigator.push(
                   context,
