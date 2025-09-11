@@ -30,6 +30,8 @@ class RecipeCategory extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                 child: Image.asset(
+                  height: 170,
+                  width: 230,
                   fit: BoxFit.cover,
                   recipe.image),
               ),

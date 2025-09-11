@@ -6,6 +6,6 @@ sealed class CaloriesState {}
 final class CaloriesInitial extends CaloriesState {}
 
 final class CaloriesCalculated extends CaloriesState {
-  final CaloriesModel model;
-  CaloriesCalculated(this.model);
+  final CaloriesModel caloriesModel;
+  CaloriesCalculated(this.caloriesModel);
 }

@@ -1,4 +1,4 @@
-import 'package:diey_app/calories_cubit/calories_cubit.dart';
+import 'package:diey_app/cubits/calories_cubit/calories_cubit.dart';
 import 'package:diey_app/presentation/pages/calories_calculator_screen.dart';
 import 'package:diey_app/presentation/pages/home_screen.dart';
 import 'package:diey_app/presentation/pages/macros_details_screen.dart';

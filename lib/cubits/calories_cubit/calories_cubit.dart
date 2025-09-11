@@ -38,7 +38,7 @@ class CaloriesCubit extends Cubit<CaloriesState> {
 
     final calories = bmr * multiplier;
 
-    final model = CaloriesModel(
+    final caloriesModel = CaloriesModel(
       height: height,
       weight: weight,
       age: age,
@@ -47,6 +47,6 @@ class CaloriesCubit extends Cubit<CaloriesState> {
       calories: calories,
     );
 
-    emit(CaloriesCalculated(model));
+    emit(CaloriesCalculated(caloriesModel));
   }
 }
