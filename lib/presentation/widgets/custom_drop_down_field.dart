@@ -11,8 +11,8 @@ class CustomDropDown extends StatelessWidget {
 
   final List<DropdownMenuItem<String>> items;
   final String labelText;
-  final String? value; // هنا بنبعت القيمة اللي مختارها المستخدم
-  final ValueChanged<String?> onChanged; // هنا بنبعت الدالة اللي هتتعامل مع التغيير
+  final String? value; 
+  final ValueChanged<String?> onChanged; 
 
   @override
   Widget build(BuildContext context) {

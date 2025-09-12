@@ -23,6 +23,9 @@ class CaloriesCubit extends Cubit<CaloriesState> {
 
     double multiplier;
     switch (activity) {
+      case " غير نشط ":
+        multiplier = 1.199;
+        break;
       case "نشاط خفيف":
         multiplier = 1.375;
         break;

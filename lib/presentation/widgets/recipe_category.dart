@@ -23,14 +23,14 @@ class RecipeCategory extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   child: Text(
                     recipe.name,
-                    style: TextStyle(fontSize: 25, color: Colors.white),
+                    style: TextStyle(fontSize: 15, color: Colors.white),
                   ),
                 ),
               ),
               ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                 child: Image.asset(
-                  height: 170,
+                  height: 120,
                   width: 230,
                   fit: BoxFit.cover,
                   recipe.image),

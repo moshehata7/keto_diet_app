@@ -1,6 +1,18 @@
-part of 'macros_cubit.dart';
+import 'package:flutter/material.dart';
 
 @immutable
-sealed class MacrosState {}
+abstract class MacrosState {}
 
-final class MacrosInitial extends MacrosState {}
+class MacrosInitial extends MacrosState {}
+
+class MacrosCalculated extends MacrosState {
+  final double protein;
+  final double carbs;
+  final double fat;
+
+  MacrosCalculated({
+    required this.protein,
+    required this.carbs,
+    required this.fat,
+  });
+}

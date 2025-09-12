@@ -14,7 +14,7 @@ class CaloriesCalculatorScreen extends StatefulWidget {
 }
 
 class _CaloriesCalculatorScreenState extends State<CaloriesCalculatorScreen> {
-  final List<String> activities = ["نشاط خفيف", "نشاط متوسط", "نشاط عالي"];
+  final List<String> activities = ["غير نشط","نشاط خفيف", "نشاط متوسط", "نشاط عالي"];
   final List<String> genders = ["ذكر", "أنثى"];
 
   final TextEditingController heightController = TextEditingController();
