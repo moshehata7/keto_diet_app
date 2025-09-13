@@ -56,8 +56,8 @@ class _SplashViewBodyState extends State<SplashViewBody>with SingleTickerProvide
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Image.asset(
-                      "images/image.webp",
-                      height: 150,
+                      "images/ketozone.png",
+                      height: 200,
                     ),
                     SizedBox(height: 10,),
                     Center(child: CircularProgressIndicator(color: Colors.black,))
