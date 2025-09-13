@@ -26,8 +26,8 @@ class _CaloriesCalculatorScreenState extends State<CaloriesCalculatorScreen> {
   final TextEditingController weightController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
 
-  late String selectedActivity;
-  late String selectedGender;
+   String? selectedActivity;
+   String ?selectedGender;
   @override
   void dispose() {
     heightController.dispose();
