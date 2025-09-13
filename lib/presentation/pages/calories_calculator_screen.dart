@@ -14,15 +14,28 @@ class CaloriesCalculatorScreen extends StatefulWidget {
 }
 
 class _CaloriesCalculatorScreenState extends State<CaloriesCalculatorScreen> {
-  final List<String> activities = ["غير نشط","نشاط خفيف", "نشاط متوسط", "نشاط عالي"];
+  final List<String> activities = [
+    "غير نشط",
+    "نشاط خفيف",
+    "نشاط متوسط",
+    "نشاط عالي",
+  ];
   final List<String> genders = ["ذكر", "أنثى"];
 
   final TextEditingController heightController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
 
-  String? selectedActivity;
-  String? selectedGender;
+  late String selectedActivity;
+  late String selectedGender;
+  @override
+  void dispose() {
+    heightController.dispose();
+    weightController.dispose();
+    ageController.dispose();
+    super.dispose();
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,53 +100,51 @@ class _CaloriesCalculatorScreenState extends State<CaloriesCalculatorScreen> {
             const SizedBox(height: 10),
 
             CustomButton(
-  text: "احسب",
-  onTap: () {
-    final height = double.tryParse(heightController.text);
-    final weight = double.tryParse(weightController.text);
-    final age = int.tryParse(ageController.text);
+              text: "احسب",
+              onTap: () {
+                final height = double.tryParse(heightController.text);
+                final weight = double.tryParse(weightController.text);
+                final age = int.tryParse(ageController.text);
 
-    if (height != null &&
-        weight != null &&
-        age != null &&
-        selectedActivity != null &&
-        selectedGender != null) {
-      BlocProvider.of<CaloriesCubit>(context).calculateCalories(
-        height: height ,
-        weight: weight,
-        age: age, 
-        gender: selectedGender!,
-        activity: selectedActivity!,
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("من فضلك ادخل كل البيانات")),
-      );
-    }
-  },
-),
-const SizedBox(height: 20),
-
-
-BlocBuilder<CaloriesCubit, CaloriesState>(
-  builder: (context, state) {
-    if (state is CaloriesCalculated) { 
-      return Column(
-        children: [
-          Text(
-            "سعراتك اليومية: ${state.caloriesModel.calories.toStringAsFixed(0)} سعر حراري  ",
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+                if (height != null &&
+                    weight != null &&
+                    age != null &&
+                    selectedActivity != null &&
+                    selectedGender != null) {
+                  BlocProvider.of<CaloriesCubit>(context).calculateCalories(
+                    height: height,
+                    weight: weight,
+                    age: age,
+                    gender: selectedGender!,
+                    activity: selectedActivity!,
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("من فضلك ادخل كل البيانات")),
+                  );
+                }
+              },
             ),
-          ),
-        ],
-      );
-    }
-    return const SizedBox.shrink();
-  },
-),
+            const SizedBox(height: 20),
 
+            BlocBuilder<CaloriesCubit, CaloriesState>(
+              builder: (context, state) {
+                if (state is CaloriesCalculated) {
+                  return Column(
+                    children: [
+                      Text(
+                        "سعراتك اليومية: ${state.caloriesModel.calories.toStringAsFixed(0)} سعر حراري  ",
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  );
+                }
+                return const SizedBox.shrink();
+              },
+            ),
           ],
         ),
       ),

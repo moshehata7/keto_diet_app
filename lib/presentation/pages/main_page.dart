@@ -35,6 +35,7 @@ class _MainPageState extends State<MainPage> {
       children: pages 
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         fixedColor: Colors.white,
         currentIndex: currentIndex,
         onTap: (value) {
